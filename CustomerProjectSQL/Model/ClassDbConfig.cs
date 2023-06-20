@@ -130,7 +130,6 @@ namespace CustomerProjectSQL.Model
                     con.Dispose();
                 }
             }
-
             return (resOut, errOut);
         }
 
