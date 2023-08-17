@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -13,7 +14,9 @@ namespace CustomerProjectSQL.Model
         public SqlConnection con { get; set; }
         public string GetConnectionString()
         {
-            var connectionString = $@"Data Source = DESKTOP-L7Q1T20\SQLEXPRESS; Initial Catalog = DB_E03; Integrated security = true";
+            var connectionString = string.Empty;
+            //connectionString = $@"Data Source = DESKTOP-L7Q1T20\SQLEXPRESS; Initial Catalog = DB_E03; Integrated security = true";
+            connectionString = ConfigurationManager.ConnectionStrings["constring"].ConnectionString;
             return connectionString;
         }
         public (SqlConnection conRes, string errRes) GetConnection()
